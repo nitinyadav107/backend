@@ -18,6 +18,15 @@ app.use(cookieParser())
 //route import
 import userRouter from './routes/user.routes.js'
 
+const express = require('express');
+const authRoutes = require('./routes/authRoutes');
+
+
+app.use(express.json());
+app.use('/api/auth', authRoutes);
+
+module.exports = app;
+
 app.use("/api/v1/users", userRouter)
 
 // http://localhost:8000/api/v1/users/register
